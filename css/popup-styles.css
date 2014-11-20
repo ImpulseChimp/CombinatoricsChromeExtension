@@ -84,7 +84,7 @@
 	}
 
 	.selector-button:hover{
-		color: #0066FF;
+		color: black;
 		background-color: #fff;
 		border-style: solid;
 		border-width: 1px;

@@ -207,7 +207,10 @@
 				//Calculates leaves
 				var result = (((m - 1) * vertices) + 1)/m;
 				$('#tree-leaves').val(result);
-				finalString += "Leaves: " + result;
+				finalString += "Leaves: " + result + "\n";
+
+				//Add final text to result variable
+				finalString += "Vertices: " + vertices + "\n";
 
 				$('#tree-calc-result').text(finalString);
 				return true;
@@ -226,6 +229,9 @@
 				$('#tree-vertices').val(result);
 				finalString += "Vertices: " + result;
 
+				//Add final text to result variable
+				finalString += "Internal Vertices: " + intVertices + "\n";
+
 				$('#tree-calc-result').text(finalString);
 				return true;
 			}
@@ -242,6 +248,9 @@
 				var result = ((m * leaves) - 1)/(m - 1);
 				$('#tree-vertices').val(result);
 				finalString += "Vertices: " + result;
+
+				//Add final text to result variable
+				finalString += "Leaves: " + leaves + "\n";
 
 				$('#tree-calc-result').text(finalString);
 				return true;

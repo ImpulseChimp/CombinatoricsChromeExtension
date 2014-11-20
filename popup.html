@@ -86,9 +86,10 @@
 
 <!-- TREES DATA VIEW -->
 <div id="tree-data-view">
-	<input class="tree-calc-input calculation-input" placeholder="Vertices"/>
-	<input class="tree-calc-input calculation-input" placeholder="Internal Verticies"/>
-	<input class="tree-calc-input calculation-input" placeholder="Leaves"/>
+	<input id="m-ary" class="tree-calc-input calculation-input" placeholder="m-ary tree">
+	<input id="tree-vertices" class="tree-calc-input calculation-input" placeholder="Vertices"/>
+	<input id="internal-tree-vertices" class="tree-calc-input calculation-input" placeholder="Internal Vertices"/>
+	<input id="tree-leaves" class="tree-calc-input calculation-input" placeholder="Leaves"/>
 	<button id="tree-calculate-button" class="calculate-button">Calculate</button>
 	<button class="clear-input-button">X</button>
 
@@ -96,7 +97,7 @@
 		<span id="tree-calc-result" class="calc-result"></span>
 	</div>
 
-	<div title="Enter any of the two fields for the third to be calculated">
+	<div title="Enter the m-ary field and any single one of the other fields for the remaining two to be calculated">
 		<img class="tooltip-icon" src="images/question-mark.png"/>
 	</div>
 </div>
@@ -148,7 +149,7 @@
 	.tree-calc-input{
 		margin: 2px auto;
 		height: 25px;
-		width: 125px;
+		width: 100px;
 	}
 
 	.calc-result{

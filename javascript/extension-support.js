@@ -128,6 +128,11 @@
 			var r = parseInt($('#permutation-r').val());
 
 			//Check to make sure input is valid here
+			if(n == "" && r == ""){
+				$('#permutation-calc-result').text('Both inputs must be filled out');
+				return false;
+			}
+
 			if(n < r){
 				$('#permutation-calc-result').text('n must be >= r');
 				return false;
@@ -171,6 +176,60 @@
 		$('.clear-input-button').on("click", function(e){
 			$('.calculation-input').val('');
 			$('.calc-result').text('');
+		});
+
+
+		/**
+			Caclulates the tree data
+		*/
+		document.getElementById("tree-calculate-button").addEventListener("click", function(){
+			var m = $('#m-ary').val();
+			var vertices = $('#tree-vertices').val();
+			var intVertices = $('#internal-tree-vertices').val();
+			var leaves = $('#tree-leaves').val();
+
+			//Validates the data was entered correctly
+			if(m == ""){
+				$('#tree-calc-result').text('m-ary field required');
+				$('#m-ary').focus();
+				return false;
+			}
+
+			//Calculate the missing edges value
+			if(vertices == "" && intVertices != "" && leaves != ""){
+				var result = parseInt(regions) + parseInt(vertices) - 2;
+				$('#tree-calc-result').text('Edges: ' + result);
+				$('#tree-vertices').val(result);
+				return true;
+			}
+			//Calculate the missing degrees value
+			else if(vertices != "" && intVerticies == "" && leaves != ""){
+				var result = parseInt(edges) - parseInt(vertices) + 2;
+				$('#tree-calc-result').text('Regions: ' + result);
+				$('#internal-tree-vertices').val(result);
+				return true;
+			}
+			//Calculate the missing vertices value
+			else if(vertices == "" && intVertices == "" && leaves != ""){
+				var finalString = '';
+
+				//Calculates internal vertices
+				var result = (leaves - 1)/(m - 1);
+				$('#internal-tree-vertices').val(result);
+				finalString += "Internal Vertices: " + result + '\n';
+
+				//Calculates vertices
+				var result = ((m * leaves) - 1)/(m - 1);
+				$('#tree-vertices').val(result);
+				finalString += "Vertices: " + result;
+
+				$('#tree-calc-result').text(finalString);
+				return true;
+			}
+
+			//Else if nothing else is hit
+			$('#tree-calc-result').text('1 of the 3 inputs must be entered');
+			return false;
 		});
 
 

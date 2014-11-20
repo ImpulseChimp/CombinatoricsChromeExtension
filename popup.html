@@ -1,0 +1,313 @@
+<head>
+
+<link rel="stylesheet" type="text/css" href="css/jquery-ui.min.css">
+<script src="javascript/jquery-2.1.1.min.js"></script>
+<script src="javascript/jquery-ui.min.js"></script>
+<script src="javascript/math.min.js"></script>
+<script src="javascript/extension-support.js"></script>
+
+</head>
+
+<!-- BEGINIING OF MAIN EXTENSION BODY VIEW -->
+<body>
+
+<div id="main_extension_container">
+<div id="menu-bar">
+	<img id="menu-button" src="images/menu-icon.png"/>
+	<div id="title-content-div"><h3 id="calc-title">Selection Menu</h3></div>
+</div>
+
+<div id="main-menu-options">
+
+	<div id="combination-permutation-button" class="menu-option">Combination/Permutation</div>
+	<div id="edges-degrees-button" class="menu-option">Edges/Degrees/Vertices</div>
+	<div id="tree-data-button" class="menu-option">Tree Data</div>
+	<div id="resources-button" class="menu-option">Additional Resources</div>
+</div>
+
+<!-- COMBINATION/PERMUTATION VIEW -->
+<div id="combination-permutation-view">
+	<div id="combination-view-button" class="selector-button">Combination</div>
+	<div id="permutation-view-button" class="selector-button">Permutation</div>
+
+
+	<div id="combinationView" class="com-perm-view">
+		<span class="short-calc-description">Combination: nCr</span><br>
+		<input id="combination-n" class="calculation-input calculation-input-small" placeholder="Variable: n" type="numbers" maxlength="3"/>
+		<input id="combination-r" class="calculation-input calculation-input-small" placeholder="Variable: r" type="numbers" maxlength="3"/>
+		<button id="combination-calculate-button" class="calculate-button">Calculate</button>
+		<button class="clear-input-button">X</button>
+
+		<div class="solution_view">
+			<span id="combination-calc-result" class="calc-result"></span>
+		</div>
+		<div title="The combination nCr is calculated as nCr = n!/[r!(n - r)!]">
+			<img class="tooltip-icon" src="images/question-mark.png"/>
+		</div>
+	</div>
+
+
+	<div id="permutationView" class="com-perm-view">
+		<span class="short-calc-description">Permutation: nPr</span><br>
+		<input id="permutation-n" class="calculation-input calculation-input-small" placeholder="Variable: n" type="numbers" maxlength="3"/>
+		<input id="permutation-r" class="calculation-input calculation-input-small" placeholder="Variable: r" type="numbers" maxlength="3"/>
+		<button id="permutation-calculate-button" class="calculate-button">Calculate</button>
+		<button class="clear-input-button">X</button>
+
+		<div class="solution_view">
+			<span id="permutation-calc-result" class="calc-result"></span>
+		</div>
+		<div title="The permutation nPr is calculated as nPr = n!/(n - r)!">
+			<img class="tooltip-icon" src="images/question-mark.png"/>
+		</div>
+	</div>
+
+	
+</div>
+
+
+<!-- EDGES/REGION VIEW -->
+<div id="edges-degrees-view">
+	<input id="edges-input" class="erv-calculation-input calculation-input calculation-input-small" placeholder="edges" maxlength="10"/>
+	<input id="regions-input" class="erv-calculation-input calculation-input calculation-input-small" placeholder="regions" maxlength="10"/>
+	<input id="vertices-input" class="erv-calculation-input calculation-input calculation-input-small" placeholder="vertices" maxlength="10"/>
+	<button id="erv-calculate-button" class="calculate-button">Calculate</button>
+	<button class="clear-input-button">X</button>
+
+	<div class="solution_view">
+		<span id="erv-calc-result" class="calc-result"></span>
+	</div>
+
+	<div title="Enter any two of the edges/regions/vertices and the third will be calculated">
+		<img class="tooltip-icon" src="images/question-mark.png"/>
+	</div>
+</div>
+
+
+<!-- TREES DATA VIEW -->
+<div id="tree-data-view">
+	<input class="tree-calc-input calculation-input" placeholder="Vertices"/>
+	<input class="tree-calc-input calculation-input" placeholder="Internal Verticies"/>
+	<input class="tree-calc-input calculation-input" placeholder="Leaves"/>
+	<button id="tree-calculate-button" class="calculate-button">Calculate</button>
+	<button class="clear-input-button">X</button>
+
+	<div class="solution_view">
+		<span id="tree-calc-result" class="calc-result"></span>
+	</div>
+
+	<div title="Enter any of the two fields for the third to be calculated">
+		<img class="tooltip-icon" src="images/question-mark.png"/>
+	</div>
+</div>
+
+
+<!-- RESOURCES VIEW -->
+<div id="resources-view">
+	<div id="url-div">
+		<div>The only resource you will ever need</div>
+		<span id="url-span">tinyurl.com/n8a5x57</span>
+ 	</div>
+
+	<div id="about-paragraph">
+		This extension was created as a helpful resource for a combinatorics class
+		I was taking at the time. I found myself using these calculations often enough
+		that it was helpful to just have them available.
+	</div>
+
+	<div id="bug-email">For bugs or comments please email: <span id="personal-email">cmw2379@vt.edu</span></div>
+</div>
+
+</div>
+<!-- END OF EXTENSION VIEW -->
+
+
+
+</body>
+
+
+<style>
+
+	#url-div{
+		margin: 15px auto;	
+	}
+
+	#url-span{
+		color: #0066FF;
+	}
+
+	#bug-email{
+		position: absolute;
+		bottom: 10;
+	}
+
+	#personal-email{
+		color: blue;
+	}
+
+	.tree-calc-input{
+		margin: 2px auto;
+		height: 25px;
+		width: 125px;
+	}
+
+	.calc-result{
+		padding-top: 10px;
+		font-weight: bold;
+		font-size: 16px;
+	}
+
+	.short-calc-description{
+		clear: both;
+	}
+
+	.tooltip-icon{
+		width: 20px;
+		height: 20px;
+		margin: 3px;
+		float: right;
+	}
+
+	.menu-option{
+		text-align: center;
+		padding-top: 15px;
+		width: 100%;
+		height: 30px;
+		border-style: solid;
+		border-width: 1px;
+		border-color: black;
+		margin-bottom: 1px;
+	}
+
+	.menu-option:hover{
+		background-color: gray;
+		cursor: hand;
+	}
+
+	#title-content-div{
+		display: inline-block;
+		height: 40px;
+	}
+
+	#menu-button{
+		float: left;
+		height: 40px;
+		width: 40px;
+	}
+
+	#menu-button:hover{
+		background-color: #0066FF;
+	}
+
+	#menu-bar{
+		margin-bottom: 10px;
+	}
+
+	.selector-button{
+		border-style: solid;
+		border-width: 1px;
+		border-color: LightGray;
+		width: 90px;
+		height: 20px;
+		display: inline-block;
+		margin-bottom: 10px;
+	}
+
+	.selector-button:hover{
+		color: #0066FF;
+		background-color: #fff;
+		border-style: solid;
+		border-width: 1px;
+		border-color: #0066FF;
+	}
+
+	.solution_view{
+		text-align: center;
+		background-color: #EBE8E9;
+		height: 65px;
+		width: 200px;
+		margin-top: 15px;
+		margin-left: 25px;
+		border: solid 1px black;
+	}
+
+	.calculation-input-small{
+		margin: 5px 10px;
+		height: 30px;
+		width: 80px;
+		display: inline-block;
+	}
+
+	.erv-calculation-input{
+		margin: 5px 10px;
+		height: 30px;
+		width: 80px;
+		clear: both;
+	}
+
+	.calculate-button{
+		background-color: #0066FF;
+		color: #fff;
+		border-style: none;
+		width: 150px;
+		height: 25px;
+	}
+
+	.calculate-button:hover{
+		color: #0066FF;
+		background-color: #fff;
+		border-style: solid;
+		border-width: 1px;
+		border-color: #0066FF;
+	}
+
+	.clear-input-button{
+		background-color: #0066FF;
+		color: #fff;
+		border-style: none;
+		width: 25px;
+		height: 25px;
+	}
+
+	.clear-input-button:hover{
+		color: #0066FF;
+		background-color: #fff;
+		border-style: solid;
+		border-width: 1px;
+		border-color: #0066FF;
+	}
+
+	#main_extension_container{
+		text-align: center;
+		width: 250px;
+	}
+
+	#combination-permutation-view{	
+		display: none;	
+	}
+
+	#edges-degrees-view{
+		display: none;
+	}
+
+	#tree-data-view{
+		display: none;
+	}
+
+	#resources-view{
+		display: none;
+	}
+
+	#combinationView{
+		display: none;
+	}
+
+	#permutationView{
+		display: none;
+	}
+
+	.com-perm-view{
+		text-align: center;
+	}
+
+</style>

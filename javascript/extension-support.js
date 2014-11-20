@@ -196,17 +196,37 @@
 			}
 
 			//Calculate the missing edges value
-			if(vertices == "" && intVertices != "" && leaves != ""){
-				var result = parseInt(regions) + parseInt(vertices) - 2;
-				$('#tree-calc-result').text('Edges: ' + result);
-				$('#tree-vertices').val(result);
+			if(vertices != "" && intVertices == "" && leaves == ""){
+				var finalString = '';
+
+				//Calculates internal vertices
+				var result = (vertices - 1)/m;
+				$('#internal-tree-vertices').val(result);
+				finalString += "Internal Vertices: " + result + '\n';
+
+				//Calculates leaves
+				var result = (((m - 1) * vertices) + 1)/m;
+				$('#tree-leaves').val(result);
+				finalString += "Leaves: " + result;
+
+				$('#tree-calc-result').text(finalString);
 				return true;
 			}
 			//Calculate the missing degrees value
-			else if(vertices != "" && intVerticies == "" && leaves != ""){
-				var result = parseInt(edges) - parseInt(vertices) + 2;
-				$('#tree-calc-result').text('Regions: ' + result);
-				$('#internal-tree-vertices').val(result);
+			else if(vertices == "" && intVertices != "" && leaves == ""){
+				var finalString = '';
+
+				//Calculates leaves
+				var result = ((m - 1) * intVertices) + 1;
+				$('#tree-leaves').val(result);
+				finalString += "Leaves: " + result + '\n';
+
+				//Calculates vertices
+				var result = (m * intVertices) + 1;
+				$('#tree-vertices').val(result);
+				finalString += "Vertices: " + result;
+
+				$('#tree-calc-result').text(finalString);
 				return true;
 			}
 			//Calculate the missing vertices value

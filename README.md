@@ -8,6 +8,8 @@ calculators to calculate this stuff occasionally. So, when I got
 interested in learning how to make a chrome extension I decided to 
 make this basic calculator.
 
+- [Link to Extension on Chrome Store](https://chrome.google.com/webstore/detail/combinatorics-calculator/ggcfbchgfbdinnlnalilegkglcaapnlo?authuser=1)
+
 The three calculations used in the extension calculator are listed below
 
 1. Combination/Permutation
